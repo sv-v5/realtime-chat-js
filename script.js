@@ -16,7 +16,7 @@ messageForm.addEventListener('submit', e => {
     const message = messageInput.value;
     socket.emit('send-chat-message', message);
     messageInput.value = '';
-})
+});
 
 function appendMessage(message) {
     const messageElement = document.createElement('div');
@@ -36,4 +36,4 @@ function appendMessage(message) {
     } else {
         newMsgNotice.style['visibility'] = 'visible';
     }
-}
+};
