@@ -9,9 +9,8 @@ open `localhost:3000` in  your browser
 
 
 ## Heroku App
-https://realtime-chat-js.herokuapp.com
-
-(and to check logs `heroku logs`)
+https://realtime-chat-js.herokuapp.com  
+join on your phone, PC, ... and send/receive messages
 
 
 ## Resources
