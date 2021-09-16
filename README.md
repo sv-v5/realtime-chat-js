@@ -5,7 +5,7 @@
 `npm install`  
 `npm run devStart`  
 
-open `localhost:3000` with your browser
+open `localhost:3000` in  your browser
 
 
 ## Heroku App
