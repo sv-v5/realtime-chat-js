@@ -1,17 +1,12 @@
-// const express = requier('express');
-// const app = express();
-// const server = require('http').Server(app);
-// const io = module.exports.io = require('socket.io')(server)
-
-// app.use(express.static(__dirname)) ...
-
-
-// for heroku use process.env.PORT || 3000
-const PORT = process.env.PORT || 3000;
-const io = require('socket.io')(PORT);
+const express = require('express');
+const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 
 // store user names when a connection is made and a user-join msg is received from script.js
 const users = {};
+
+app.use(express.static(__dirname + '/'));
 
 io.on('connection', socket => {
     // socket.emit('chat-message', 'Hello chat');
@@ -33,6 +28,8 @@ io.on('connection', socket => {
     });
 });
 
-// server.listen(PORT, () => {
-//     console.log("Connected to port:" + PORT);
-// });
+// for heroku use process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+    console.log(`Server running on port: ${PORT}`);
+});

@@ -16,3 +16,4 @@ https://realtime-chat-js.herokuapp.com
 
 ## Resources
 https://github.com/WebDevSimplified/Realtime-Simple-Chat-App  
+https://github.com/bradtraversy/chatcord
