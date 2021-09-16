@@ -4,16 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Realtime WS Chat</title>
-    <!-- <style></style> -->
+    <style>
+        /* https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS */
+        #message-container {
+            margin-left: 10%;
+            max-width: 1200px;
+            max-height: 80vh;
+            overflow-y: scroll;
+        }
+        #send-container {
+            margin-left: 10%;
+            position: fixed;
+            bottom: 10vh;
+        }
+        #new-message-notice {
+            margin-left: 10%;
+            position: fixed;
+            bottom: 4vh;
+        }
+    </style>
+    <!-- TODO: heroku address/port, serve index.html with express, import socket.io -->
     <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script defer src="script.js"></script>
 </head>
 <body>
+    <!-- has a height limit using view height vh. scrolling down for new msgs is handled in script.js -->
     <div id="message-container"></div>
     <form id="send-container">
         <input type="text" id="message-input">
         <button type="submit" id="send-button">Send</button>
     </form>
-    
+    <div id="new-message-notice" style="visibility: hidden;"> *New Messages Present* </div>
 </body>
 </html>
