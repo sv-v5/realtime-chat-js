@@ -2,6 +2,7 @@ const socket = io();
 const messageForm = document.getElementById('send-container');
 const messageContainer = document.getElementById('message-container');
 const messageInput = document.getElementById('message-input');
+const newMsgNotice = document.getElementById('new-message-notice');
 const userList = document.getElementById('user-list');
 
 const username = prompt('Enter your username');
@@ -30,7 +31,6 @@ function appendMessage(message) {
     }
     messageContainer.append(messageElement);
     // add logic to show notice if there are new messages, if the user is not scrolled all the way down
-    newMsgNotice = document.getElementById('new-message-notice');
     if (atbottom) {
         messageContainer.scrollTop = messageContainer.scrollHeight;
         newMsgNotice.style['visibility'] = 'hidden';
