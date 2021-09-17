@@ -4,6 +4,7 @@ const messageContainer = document.getElementById('message-container');
 const messageInput = document.getElementById('message-input');
 const newMsgNotice = document.getElementById('new-message-notice');
 const userList = document.getElementById('user-list');
+const themeCheckbox = document.getElementById('theme-checkbox');
 
 const username = prompt('Enter your username');
 socket.emit('user-join', username);
@@ -38,3 +39,14 @@ function appendMessage(message) {
         newMsgNotice.style['visibility'] = 'visible';
     }
 };
+
+// change theme color: dark, light
+themeCheckbox.addEventListener('change', () => {
+    if(themeCheckbox.checked) {
+        document.body.style['background-color'] = '#323b57';
+        document.body.style['color'] = '#f3f2ef';
+    } else {
+        document.body.style['background-color'] = '#fdecc5';
+        document.body.style['color'] = '#1d1f1d';
+    }
+});
