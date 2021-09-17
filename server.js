@@ -14,6 +14,7 @@ io.on('connection', socket => {
         users[socket.id] = username;
         // template strings, like python's fstrings `here is a variable ${var}`
         io.emit('chat-message', (`${username} has joined the chat`));
+        io.emit('user-list', Object.values(users).join(", "));
     });
     // receive chat message from clients
     socket.on('send-chat-message', message => {
@@ -24,6 +25,7 @@ io.on('connection', socket => {
     socket.on('disconnect', () => {
         io.emit('chat-message', `${users[socket.id]} has left the chat`);
         delete users[socket.id];
+        io.emit('user-list', Object.values(users).join(", "));
         // io.emit('chat-message', `size of users ${Object.keys(users).length}`);  // track number of users in the chat
     });
 });

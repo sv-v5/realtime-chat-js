@@ -9,30 +9,31 @@
         #message-container {
             margin-left: 10%;
             max-width: 1200px;
-            max-height: 80vh;
+            max-height: 72vh;
             overflow-y: scroll;
         }
-        #send-container {
-            margin-left: 10%;
-            position: fixed;
-            bottom: 10vh;
-        }
         #new-message-notice {
+            font-size: smaller;
+        }
+        #controls-info {
             margin-left: 10%;
             position: fixed;
-            bottom: 4vh;
+            top: 76vh;
         }
     </style>
     <script defer src="/socket.io/socket.io.js"></script>
     <script defer src="/script.js"></script>
 </head>
-<body>
+<body style="font-family: Arial, Helvetica, sans-serif;">
     <!-- has a height limit using view height vh. scrolling down for new msgs is handled in script.js -->
     <div id="message-container"></div>
-    <form id="send-container">
-        <input type="text" id="message-input">
-        <button type="submit" id="send-button">Send</button>
-    </form>
-    <div id="new-message-notice" style="visibility: hidden;"> *New Messages Present* </div>
+    <div id="controls-info">
+        <form id="send-container">
+            <input type="text" id="message-input">
+            <button type="submit" id="send-button">Send</button>
+        </form>
+        <div id="new-message-notice" style="visibility: hidden;"> *New Messages Present* </div>
+        <div id="user-list">Users: </div>
+    </div>
 </body>
 </html>

@@ -2,12 +2,14 @@ const socket = io();
 const messageForm = document.getElementById('send-container');
 const messageContainer = document.getElementById('message-container');
 const messageInput = document.getElementById('message-input');
+const userList = document.getElementById('user-list');
 
 const username = prompt('Enter your username');
 socket.emit('user-join', username);
 
 // msg sent from server with type or identifier 'chat-message'
 socket.on('chat-message', data => {appendMessage(data)} );
+socket.on('user-list', data => { userList.innerText = 'Users: ' + data });
 
 messageForm.addEventListener('submit', e => {
     // prevent default behavior of submitting form (opening a file behavior?). also prevents page refresh
